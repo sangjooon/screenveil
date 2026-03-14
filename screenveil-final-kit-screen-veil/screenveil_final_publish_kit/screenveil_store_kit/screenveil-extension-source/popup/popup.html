@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Screen Veil</title>
+    <style>
+      body {
+        width: 360px;
+        margin: 0;
+        padding: 16px;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        color: #111827;
+      }
+      h1 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+      }
+      p {
+        margin: 0;
+        line-height: 1.45;
+        color: #374151;
+      }
+      .lead {
+        margin-bottom: 12px;
+      }
+      .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 12px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .muted {
+        color: #6b7280;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+      .warning {
+        color: #92400e;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      .accent {
+        color: #1d4ed8;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      .domain-chip,
+      .hotkey-chip {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .domain-chip {
+        background: #f3f4f6;
+        color: #111827;
+        margin-top: 8px;
+      }
+      .hotkey-chip {
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+      button {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        background: #111827;
+        color: white;
+      }
+      button.secondary {
+        background: #f3f4f6;
+        color: #111827;
+      }
+      button.tertiary {
+        background: #2563eb;
+        color: white;
+      }
+      input[type='checkbox'] {
+        transform: scale(1.15);
+      }
+      #supported,
+      #registerCard,
+      #unsupported {
+        display: none;
+      }
+      #popupMessage {
+        min-height: 18px;
+        font-size: 12px;
+        color: #065f46;
+        margin-top: 10px;
+      }
+      #popupMessage.error {
+        color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="titleEl">Screen Veil</h1>
+    <p id="subtitleEl" class="lead"></p>
+
+    <div id="supported" class="card">
+      <div class="row">
+        <div>
+          <strong id="siteName"></strong>
+          <div class="muted" id="siteUrl"></div>
+        </div>
+        <label>
+          <input type="checkbox" id="siteToggle" />
+        </label>
+      </div>
+      <div class="warning" id="pinWarning"></div>
+      <div class="accent" id="hotkeyInfo"></div>
+    </div>
+
+    <div id="registerCard" class="card">
+      <strong id="registerTitle"></strong>
+      <p id="registerBody" style="margin-top:8px;"></p>
+      <div id="registerDomain" class="domain-chip"></div>
+      <button id="registerButton" class="tertiary" style="margin-top:12px;"></button>
+    </div>
+
+    <div id="unsupported" class="card">
+      <strong id="unsupportedTitle"></strong>
+      <p id="unsupportedBody" style="margin-top:8px;"></p>
+      <p id="unsupportedHelp" class="muted" style="margin-top:8px;"></p>
+    </div>
+
+    <div class="card">
+      <div class="muted" id="quickLockTitle" style="margin-bottom:8px;"></div>
+      <div class="hotkey-chip" id="hotkeyChip">Ctrl + Shift + P</div>
+      <p id="quickLockBody" class="muted" style="margin-top:8px;"></p>
+    </div>
+
+    <button id="lockButton"></button>
+    <div style="height:8px;"></div>
+    <button id="settingsButton" class="secondary"></button>
+    <div id="popupMessage"></div>
+
+    <script src="../common/i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

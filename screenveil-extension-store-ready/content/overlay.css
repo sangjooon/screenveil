@@ -1,0 +1,78 @@
+html.peekproof-locked {
+  overflow: hidden !important;
+}
+
+#peekproof-overlay {
+  --peekproof-blur-strength: 14px;
+  --peekproof-overlay-bg: rgba(7, 11, 19, 0.35);
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  background: var(--peekproof-overlay-bg);
+  backdrop-filter: blur(var(--peekproof-blur-strength));
+  -webkit-backdrop-filter: blur(var(--peekproof-blur-strength));
+  font-family: Arial, sans-serif;
+}
+
+#peekproof-overlay .peekproof-panel {
+  width: min(420px, calc(100vw - 32px));
+  background: rgba(255, 255, 255, 0.94);
+  color: #111827;
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  padding: 24px;
+  text-align: center;
+}
+
+#peekproof-overlay .peekproof-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #4f46e5;
+}
+
+#peekproof-overlay h1 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+
+#peekproof-overlay p {
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+  color: #374151;
+}
+
+#peekproof-overlay input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+#peekproof-overlay button {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #111827;
+  cursor: pointer;
+}
+
+#peekproof-overlay .peekproof-error {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #b91c1c;
+}
